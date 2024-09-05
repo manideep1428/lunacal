@@ -60,8 +60,6 @@ export default function Component() {
             <QuestionSvg className="w-[23px] h-[23px] question" />
           </div>
         </div>
-
-        {/* Gallery Widget */}
         <div className="relative bg-[#363C43] h-[330px] rounded-3xl p-6 shadow-lg">
           <div className='absolute top-4 left-2'>
             <QuestionSvg className="w-[23px] h-[23px] question" />

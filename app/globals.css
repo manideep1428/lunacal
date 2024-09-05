@@ -186,12 +186,6 @@
   width: 720px;height: 330px;top: 453px;left: 922px;
 }
 
-.span-btn{
-  @apply absolute bg-[#1e2022] inset-0 w-full h-full scale-x-0 duration-1000 ease-in-out transition-transform  origin-left
-}
-.span-btn:hover{
-  @apply  scale-x-100
-}
 
 .tab-btn-active {
   background-color: #363C43;
