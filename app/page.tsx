@@ -8,7 +8,7 @@ import { info } from './data';
 import { ResponsiveImage } from '@/components/responsive-image';
 
 export default function Component() {
-  const [activeTab, setActiveTab] = useState('about');
+  const [activeTab, setActiveTab] = useState('about me');
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [images, setImages] = useState([
     '/image.png',
@@ -91,7 +91,7 @@ export default function Component() {
       <div className="w-full md:w-1/2 space-y-6 py-6">
         <div className="relative bg-[#363C43] h-auto rounded-3xl p-4 md:p-6 shadow-lg">
           <div className="flex items-center justify-center mb-4 md:mb-6">
-            <div className="relative bg-[#171717] w-full max-w-[560px] rounded-xl flex flex-row">
+            <div className="relative bg-[#171717] w-full max-w-[570px] rounded-xl flex flex-row">
               {tabs.map((tab, index) => (
                 <button
                   key={tab}
@@ -123,8 +123,8 @@ export default function Component() {
           <div className="text-gray-300 text-sm md:text-base font-semibold leading-relaxed">
             {info[activeTabIndex]}
           </div>
-          <div className="absolute top-2 md:top-2 left-2 md:hidden">
-            <QuestionSvg className="w-[18px] h-[18px] m-4 md:w-[23px] md:h-[23px] question sm:hidden" />
+          <div className="absolute top-2 md:top-2 left-0">
+            <QuestionSvg className="w-[18px] h-[18px] m-4 md:w-[23px] md:h-[23px] question" />
           </div>
         </div>
 
