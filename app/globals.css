@@ -88,100 +88,6 @@
 }
 
 
-
-
-/* 
-
-
-
-.btn-gallery{
-  width: 149px;
-  height: 62px;
-  top: 37px;
-  left: 20px;
-}
-
-.add-image-btn{
-  width: 149px;
-  height: 53px;
-  top: 37px;
-  left: 20px;
-}
-
-.add-image-btn {
-  background-color: #505050;
-  color: white;
-  padding: 8px 16px;
-  width: 69px;
-  height: 7px;
-  top: 501px;
-  left: 1344.66px;
-  border: none;
-  border-radius: 20px;
-  font-size: 14px;
-  position: relative;
-  box-shadow: 
-    0 -1px 0 rgba(255,255,255,0.3),
-    0 1px 0 rgba(0,0,0,0.2);
-}
-
-.add-image-btn::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  height: 50%;
-  background: ;
-  border-radius: 20px 20px 0 0;
-}
-
-.add-image-btn::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: -2px;
-  right: -2px;
-  height: 50%;
-  background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0));
-  border-radius: 0 0 20px 20px;
-}
-
-.tab-btns{
-  width: Fixed (195px)px;
-  height: Fixed (49px)px;
-  padding: 10px 24px 10px 24px;
-  gap: 10px;
-  border-radius: 16px 0px 0px 0px;
-  opacity: 0px;
-}
-
-.tab-btns-text{
-  width: 87px;
-  height: 17px;
-}
-
-.tab-bar{
-  width: 614px;
-  height: 62px;
-  top: 113px;
-  left: 975px;
-  gap: 0px;
-  border-radius: 23px 0px 0px 0px;
-  opacity: 0px;
-  background-color :#171717;
-}
-
-.main-box{
-  width: 720px;
-  height: 316px;
-  top: 96px;
-  left: 922px;
-  gap: 0px;
-  border-radius: 18.89px 0px 0px 0px;
-  opacity: 0px;
-} */
-
 .secondary-box{
   width: 720px;height: 330px;top: 453px;left: 922px;
 }
@@ -212,7 +118,7 @@
 
 
 .img-hover:hover{
-  transform: scale(1.1) rotate(-5deg);
+  transform: scale(1.04) rotate(-3deg);
   filter: hue-rotate(180deg) brightness(1.2) ;
 }
 
@@ -221,10 +127,6 @@
   border: 4px solid transparent;
 }
 
-.next-btn{
-  background: linear-gradient(139.14deg, #303439 20%  ,#161718  94.96%);
-  box-shadow: 2px 2xp 6px white  , -2px -2xp 6px white ;
-}
 
 .tab-btn {
   position: relative;
@@ -232,6 +134,14 @@
   background: transparent;
   border: 2px solid transparent;
   transition: color 0.3s;
+  z-index: 2;
+}
+.tab-btn {
+  transition: color 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .tab-btn .fill-animation {
@@ -250,6 +160,24 @@
   left: 0;
 }
 
-.next-btn:hover{
-  background: linear-gradient(to rgb(17, 17, 180) , black);
+
+.next-btn{
+  background: linear-gradient(139.14deg, #303439 20%  ,#161718  94.96%);
+}
+
+.btn-next .btn-prev :hover{
+  background-color: #000000;
+  color:white;
+}
+.next-btn:active{
+  background: linear-gradient(139deg, #96BEE7 30.6%, #080f14 );
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
