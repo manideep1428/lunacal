@@ -91,7 +91,7 @@ export default function Component() {
       <div className="w-full md:w-1/2 space-y-6 py-6">
         <div className="relative bg-[#363C43] h-auto rounded-3xl p-4 md:p-6 shadow-lg">
           <div className="flex items-center justify-center mb-4 md:mb-6">
-            <div className="relative bg-[#171717] w-full max-w-[560px] p-1 rounded-xl flex flex-row">
+            <div className="relative bg-[#171717] w-full max-w-[560px] rounded-xl flex flex-row">
               {tabs.map((tab, index) => (
                 <button
                   key={tab}
@@ -100,7 +100,7 @@ export default function Component() {
                   className={`relative rounded-xl h-[40px] md:h-[49px] w-full px-2 md:px-4 py-1 md:py-2 text-sm md:text-xl font-medium tab-btn z-10 transition-colors duration-300 ${
                     activeTab === tab.toLowerCase()
                       ? 'text-white tab-btn-active'
-                      : 'text-gray-400'
+                      : 'text-gray-400 '
                   }`}
                   onClick={() => handleTabClick(tab, index)}
                 >
@@ -123,8 +123,8 @@ export default function Component() {
           <div className="text-gray-300 text-sm md:text-base font-semibold leading-relaxed">
             {info[activeTabIndex]}
           </div>
-          <div className="absolute top-2 md:top-4 left-2">
-            <QuestionSvg className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] question" />
+          <div className="absolute top-2 md:top-2 left-2 md:hidden">
+            <QuestionSvg className="w-[18px] h-[18px] m-4 md:w-[23px] md:h-[23px] question sm:hidden" />
           </div>
         </div>
 
