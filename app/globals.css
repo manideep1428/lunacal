@@ -165,9 +165,10 @@
   background: linear-gradient(139.14deg, #303439 20%  ,#161718  94.96%);
 }
 
-.btn-next .btn-prev :hover{
-  background-color: #000000;
-  color:white;
+.next-btn:hover{
+  background-color: #000000 !important;
+  color:white !important; 
+  
 }
 .next-btn:active{
   background: linear-gradient(139deg, #96BEE7 30.6%, #080f14 );

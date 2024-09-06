@@ -8,6 +8,8 @@ export default function InputFile({addImage}:{addImage:(e :React.ChangeEvent<HTM
         if (fileInputRef.current) {
             //@ts-ignore
             fileInputRef.current.click();
+            //accept only images
+            
         }
     };
 
@@ -23,7 +25,9 @@ export default function InputFile({addImage}:{addImage:(e :React.ChangeEvent<HTM
                 type="file"
                 className="hidden"
                 ref={fileInputRef}
-                accept="image"
+                accept="image/*"
+                //@ts-ignore
+                onClick={addImage}
             />
         </div>
     );

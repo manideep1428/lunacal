@@ -28,11 +28,13 @@ export default function Component() {
     setActiveTabIndex(index);
   };
 
-  const addImage = (e :React.ChangeEvent<HTMLInputElement>) => {
-    const newImage  = ""
-    setImages([...images, newImage]);
+  const addImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const newImage = URL.createObjectURL(e.target.files[0]);
+      console.log(newImage)
+      setImages([...images, newImage]);
+    }
   };
-
 
   const scroll = (direction: 'left' | 'right') => {
     if (carouselRef.current && !isScrolling) {
@@ -85,17 +87,17 @@ export default function Component() {
   }, [activeTabIndex]);
 
   return (
-    <div className="min-h-screen bg-[#1E1E1E] flex justify-end px-4 sm:px-8">
-      <div className="w-full lg:w-1/2 space-y-6 py-6">
-        <div className="relative bg-[#363C43] h-auto rounded-3xl p-6 shadow-lg">
-          <div className="flex items-center justify-center mb-6">
-            <div className="relative bg-[#171717] w-full lg:w-[560px] p-1 rounded-xl flex flex-col sm:flex-row">
+    <div className="min-h-screen bg-[#1E1E1E] flex flex-col md:flex-row md:justify-end px-4 sm:px-8">
+      <div className="w-full md:w-1/2 space-y-6 py-6">
+        <div className="relative bg-[#363C43] h-auto rounded-3xl p-4 md:p-6 shadow-lg">
+          <div className="flex items-center justify-center mb-4 md:mb-6">
+            <div className="relative bg-[#171717] w-full max-w-[560px] p-1 rounded-xl flex flex-row">
               {tabs.map((tab, index) => (
                 <button
                   key={tab}
                   //@ts-ignore
                   ref={(el) => (tabsRef.current[index] = el)}
-                  className={`relative rounded-xl h-[49px] w-full sm:w-[195px] px-4 py-2 text-xl font-medium tab-btn z-10 transition-colors duration-300 ${
+                  className={`relative rounded-xl h-[40px] md:h-[49px] w-full px-2 md:px-4 py-1 md:py-2 text-sm md:text-xl font-medium tab-btn z-10 transition-colors duration-300 ${
                     activeTab === tab.toLowerCase()
                       ? 'text-white tab-btn-active'
                       : 'text-gray-400'
@@ -103,7 +105,7 @@ export default function Component() {
                   onClick={() => handleTabClick(tab, index)}
                 >
                   <span>{tab}</span>
-                  <div className={`${activeTab === tab.toLowerCase() ? "" :"fill-animation"}`} ></div>
+                  <div className={`${activeTab === tab.toLowerCase() ? "" :"fill-animation"}`}></div>
                 </button>
               ))}
               <div className="absolute inset-0 p-1 pointer-events-none">
@@ -118,33 +120,33 @@ export default function Component() {
               </div>
             </div>
           </div>
-          <div className="text-gray-300 font-semibold leading-relaxed">
+          <div className="text-gray-300 text-sm md:text-base font-semibold leading-relaxed">
             {info[activeTabIndex]}
           </div>
-          <div className="absolute top-4 left-2">
-            <QuestionSvg className="w-[23px] h-[23px] question" />
+          <div className="absolute top-2 md:top-4 left-2">
+            <QuestionSvg className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] question" />
           </div>
         </div>
 
-        <div className="relative bg-[#363C43] h-auto rounded-3xl p-6 shadow-lg">
-          <div className="absolute top-4 left-2">
-            <QuestionSvg className="w-[23px] h-[23px] question" />
+        <div className="relative bg-[#363C43] h-auto rounded-3xl p-4 md:p-6 shadow-lg">
+          <div className="absolute top-2 md:top-4 left-2">
+            <QuestionSvg className="w-[18px] h-[18px] md:w-[23px] md:h-[23px] question" />
           </div>
-          <div className="flex justify-between">
-            <div className="flex justify-center ml-4 items-center text-white text-xl font-semibold bg-black rounded-xl h-12 px-4">
-              <h2 className="text-[20px] font-light">Gallery</h2>
+          <div className="flex flex-col md:flex-row justify-between items-center mb-4 md:mb-0">
+            <div className="flex justify-center items-center text-white sm:ml-10 text-xl font-semibold bg-black rounded-xl h-10 md:h-12 px-4 mb-4 md:mb-0">
+              <h2 className="text-[16px] md:text-[20px] font-light">Gallery</h2>
             </div>
-            <div className="flex justify-center gap-6 items-center">
+            <div className="flex justify-center gap-4 md:gap-6 items-center">
               <InputFile addImage={addImage}/>
               <button 
-                className="text-white p-3 next-btn rounded-full transition duration-700 ease-in-out hover:bg-black btn-next shadow-sm shadow-white"
+                className="text-white p-2 md:p-3 next-btn rounded-full transition duration-700 ease-in-out hover:bg-black btn-next shadow-sm shadow-white"
                 onClick={() => scroll('left')}
                 disabled={isScrolling}
               >
                 <LeftArrow />
               </button>
               <button 
-                className="text-white next-btn p-3 rounded-full transition duration-700 ease-in-out hover:bg-black btn-prev shadow-sm shadow-white"
+                className="text-white next-btn p-2 md:p-3 rounded-full transition duration-700 ease-in-out hover:bg-black btn-prev shadow-sm shadow-white"
                 onClick={() => scroll('right')}
                 disabled={isScrolling}
               >
@@ -154,7 +156,7 @@ export default function Component() {
           </div>
           <div 
             ref={carouselRef}
-            className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory pt-12"
+            className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory pt-4 md:pt-12"
           >
             {images.concat(images.slice(0, 2)).map((src, index) => (
               <div key={index} className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-2 snap-start">

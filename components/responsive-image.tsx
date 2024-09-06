@@ -28,7 +28,7 @@ export function ResponsiveImage({ src, alt, className = '' }: ResponsiveImagePro
       <Image
         src={src}
         alt={alt}
-        layout="fill"
+        layout='fill'
         objectFit="cover"
         className="rounded-2xl img-hover"
       />
