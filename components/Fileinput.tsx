@@ -15,7 +15,7 @@ export default function InputFile({addImage}:{addImage:(e :React.ChangeEvent<HTM
 
     return (
         <div
-            className="flex items-center justify-center w-[138px] text-sm text-white h-[44px] rounded-full bg-[#363C43] input-shadow hover:cursor-pointer"
+            className="flex items-center justify-center w-[138px] text-sm text-white h-[44px] rounded-full bg-[#363C43] input-shadow hover:cursor-pointer transtion duration-300 ease hover:w-[142px] hover:h-[46px]"
             onClick={handleClick}
         >
             <Plus className="w-3 h-3 text-white" />
