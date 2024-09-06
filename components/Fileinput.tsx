@@ -1,7 +1,7 @@
 import { Plus } from "lucide-react";
 import { useRef } from "react";
 
-export default function InputFile() {
+export default function InputFile({addImage}:{addImage:(e :React.ChangeEvent<HTMLInputElement>)=>void}) {
     const fileInputRef = useRef(null);
 
     const handleClick = () => {
@@ -23,6 +23,7 @@ export default function InputFile() {
                 type="file"
                 className="hidden"
                 ref={fileInputRef}
+                accept="image"
             />
         </div>
     );

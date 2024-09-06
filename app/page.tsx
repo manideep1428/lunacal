@@ -28,9 +28,11 @@ export default function Component() {
     setActiveTabIndex(index);
   };
 
-  const addImage = (newImage: string) => {
+  const addImage = (e :React.ChangeEvent<HTMLInputElement>) => {
+    const newImage  = ""
     setImages([...images, newImage]);
   };
+
 
   const scroll = (direction: 'left' | 'right') => {
     if (carouselRef.current && !isScrolling) {
@@ -95,13 +97,13 @@ export default function Component() {
                   ref={(el) => (tabsRef.current[index] = el)}
                   className={`relative rounded-xl h-[49px] w-full sm:w-[195px] px-4 py-2 text-xl font-medium tab-btn z-10 transition-colors duration-300 ${
                     activeTab === tab.toLowerCase()
-                      ? 'text-white'
+                      ? 'text-white tab-btn-active'
                       : 'text-gray-400'
                   }`}
                   onClick={() => handleTabClick(tab, index)}
                 >
                   <span>{tab}</span>
-                  <div className='fill-animation'></div>
+                  <div className={`${activeTab === tab.toLowerCase() ? "" :"fill-animation"}`} ></div>
                 </button>
               ))}
               <div className="absolute inset-0 p-1 pointer-events-none">
@@ -133,7 +135,7 @@ export default function Component() {
               <h2 className="text-[20px] font-light">Gallery</h2>
             </div>
             <div className="flex justify-center gap-6 items-center">
-              <InputFile/>
+              <InputFile addImage={addImage}/>
               <button 
                 className="text-white p-3 next-btn rounded-full transition duration-700 ease-in-out hover:bg-black btn-next shadow-sm shadow-white"
                 onClick={() => scroll('left')}
